@@ -1,0 +1,17 @@
+RewriteEngine On
+
+DirectoryIndex index.html
+
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^www\.takedaclinic\.tokyo$ [NC]
+RewriteRule ^(.*)$ https://takedaclinic.tokyo/$1 [R=301,L]
+
+Redirect 301 /recruit/ /recruit.html
+Redirect 301 /category/top-page/ /
+Redirect 301 /2022/08/ /recruit.html
+Redirect 301 /feed/ /
+Redirect 301 /comments/feed/ /
+
+ErrorDocument 404 /404.html

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://takedaclinic.tokyo/sitemap.xml
