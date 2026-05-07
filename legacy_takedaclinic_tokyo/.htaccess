@@ -1,0 +1,7 @@
+RewriteEngine On
+
+# Install this file only on the recovered legacy domain takedaclinic.tokyo.
+# It preserves the path and query string while permanently moving users and
+# search engines to the new official domain.
+RewriteCond %{HTTP_HOST} ^(www\.)?takedaclinic\.tokyo$ [NC]
+RewriteRule ^(.*)$ https://takedaclinic-shinjuku.jp/$1 [R=301,L,NE]
