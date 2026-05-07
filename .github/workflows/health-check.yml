@@ -1,0 +1,64 @@
+name: Daily health check
+
+on:
+  schedule:
+    - cron: "0 0 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  health-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run health check
+        id: health
+        shell: bash
+        continue-on-error: true
+        run: |
+          set +e
+          bash scripts/health-check.sh 2>&1 | tee health-check.log
+          exit_code=${PIPESTATUS[0]}
+          echo "exit_code=${exit_code}" >> "$GITHUB_OUTPUT"
+          {
+            echo "log<<EOF"
+            cat health-check.log
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Report failure
+        if: steps.health.outputs.exit_code != '0'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          title="竹田クリニック health-check failed - $(date -u +'%Y-%m-%d')"
+          search='竹田クリニック health-check failed in:title state:open'
+          existing="$(gh issue list --search "$search" --json number --jq '.[0].number // empty')"
+
+          {
+            echo "Automated health check failed."
+            echo
+            echo "Run: ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+            echo
+            echo '```text'
+            cat health-check.log
+            echo '```'
+          } > issue-body.md
+
+          if [ -n "$existing" ]; then
+            gh issue comment "$existing" --body-file issue-body.md
+          else
+            gh issue create --title "$title" --body-file issue-body.md
+          fi
+
+          exit 1
+
+      - name: OK
+        if: steps.health.outputs.exit_code == '0'
+        run: echo "OK"
