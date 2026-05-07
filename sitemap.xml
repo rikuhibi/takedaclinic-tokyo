@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://takedaclinic.tokyo/</loc>
+    <loc>https://takedaclinic-shinjuku.jp/</loc>
     <lastmod>2026-05-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://takedaclinic.tokyo/kenshin.html</loc>
+    <loc>https://takedaclinic-shinjuku.jp/kenshin.html</loc>
     <lastmod>2026-05-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://takedaclinic.tokyo/vaccination.html</loc>
+    <loc>https://takedaclinic-shinjuku.jp/vaccination.html</loc>
     <lastmod>2026-05-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://takedaclinic.tokyo/recruit.html</loc>
+    <loc>https://takedaclinic-shinjuku.jp/recruit.html</loc>
     <lastmod>2026-05-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>

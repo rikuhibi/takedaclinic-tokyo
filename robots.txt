@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://takedaclinic.tokyo/sitemap.xml
+Sitemap: https://takedaclinic-shinjuku.jp/sitemap.xml
