@@ -20,7 +20,9 @@ fi
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-if [ -f "${SCRIPT_DIR}/../dist/index.html" ]; then
+if [ -n "${SITE_DIR:-}" ]; then
+  SITE_DIR="$(cd "${SITE_DIR}" && pwd)"
+elif [ -f "${SCRIPT_DIR}/../dist/index.html" ]; then
   SITE_DIR="$(cd "${SCRIPT_DIR}/../dist" && pwd)"
 else
   SITE_DIR="$(cd "${SCRIPT_DIR}/.." && pwd)"

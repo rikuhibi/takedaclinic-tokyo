@@ -26,6 +26,12 @@ After a GA4 property is created, inject the Measurement ID into all production H
 bash scripts/inject-ga4.sh G-XXXXXXXXXX
 ```
 
+Current production Measurement ID:
+
+```bash
+bash scripts/inject-ga4.sh G-1FSBPJDL04
+```
+
 The script replaces the block between:
 
 ```html

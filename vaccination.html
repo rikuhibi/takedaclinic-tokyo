@@ -14,8 +14,14 @@
     <link rel="icon" href="assets/images/logo.png">
     <link rel="stylesheet" href="assets/css/styles.css">
     <!-- GA4_BEGIN -->
-    <!-- GA4 Measurement ID is not set yet. Run scripts/inject-ga4.sh G-XXXXXXXXXX after creating GA4 property. -->
-    <!-- GA4_END -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1FSBPJDL04"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-1FSBPJDL04");
+</script>
+<!-- GA4_END -->
   </head>
   <body>
     <header class="site-header compact" data-header>
@@ -97,5 +103,6 @@
     </footer>
     <div class="mobile-cta"><a href="tel:0333714114">電話</a><a href="index.html#hours">診療時間</a><a href="index.html#access">アクセス</a></div>
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/analytics.js" defer></script>
   </body>
 </html>
