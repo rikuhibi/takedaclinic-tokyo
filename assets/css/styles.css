@@ -595,6 +595,51 @@ address {
   background: #f8fbfa;
 }
 
+.standards-note {
+  max-width: 760px;
+  color: var(--muted);
+  font-size: 0.92rem;
+  margin-bottom: 22px;
+}
+
+.standards-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.standard-item {
+  padding: 18px 20px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: white;
+}
+
+.standard-item--wide {
+  grid-column: span 2;
+}
+
+.standard-item h3 {
+  font-size: 1rem;
+  margin-bottom: 8px;
+}
+
+.standard-item p,
+.standard-item li {
+  color: var(--muted);
+  font-size: 0.88rem;
+  line-height: 1.8;
+}
+
+.standard-item p {
+  margin-bottom: 0;
+}
+
+.standard-item ul {
+  margin: 8px 0 0;
+  padding-left: 18px;
+}
+
 .page-hero {
   padding: 62px 0;
   background: var(--cream);
@@ -767,8 +812,13 @@ address {
   .service-grid,
   .feature-grid,
   .standards-grid,
+  .standards-list,
   .footer-grid {
     grid-template-columns: 1fr;
+  }
+
+  .standard-item--wide {
+    grid-column: auto;
   }
 
   .map-frame,
@@ -835,7 +885,8 @@ address {
   }
 
   .service-card,
-  .standards-grid article {
+  .standards-grid article,
+  .standard-item {
     padding: 20px;
   }
 
